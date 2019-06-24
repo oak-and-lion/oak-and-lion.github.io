@@ -64,219 +64,211 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <span class="subheading">Pricing Plans</span>
-            <h2 class="mb-4">Our Best Pricing</h2>
+            <h1 class="heading">How to Use</h1>
           </div>
         </div>
     		<div class="row">
-	        <div class="col-md-3">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Free</h2>
-	            <span class="price"><sup>$</sup> <span class="number">0</span></span>
-	            <span class="excerpt d-block">100% free. Forever</span>
-	            <a href="#" class="btn btn-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-3">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>150 GB</strong> Bandwidth</li>
-	              <li><strong>100 GB</strong> Storage</li>
-	              <li><strong>$1.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
+	        <div class="col-md-12">
+	            <div class="text-left">
+	            <h2 class="heading">Download</h2>
+				<p>
+				Download the client app for your operating system
+				</p>
 	            </div>
-	          </div>
+			  <div class="text-left">
+			  <h2 class="heading">Generate your key pair</h2>
+			  <p>
+			  Generate your key pair. 
+			  <ul class="pricing-text">
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command:<br/><code>&nbsp;> oal gen&nbsp;</code></li>
+				<li>This will generate your personal private/public key pair and download the master public key. You will receive the following message on success:
+				<div class="no-line-height"><code>&nbsp;xxx bytes written successfully to ./keys/public.key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;xxx bytes written successfully to ./keys/private.key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;xxx bytes written successfully to ./keys/master-public.key&nbsp;</code>
+				</div>
+				</li>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Register your identity</h2>
+			  <p>After you have generated your keys, you need to register your identity. Each identity is unique and must adhere to the following rules:
+				<ul class="pricing-text">
+					<li>Must start with a lowercase letter</li>
+					<li>Minimum length 6 character</li>
+					<li>maximum length 50 characters</li>
+					<li>Limited to lowercase letters, numbers, underscore, and dash characters</li>
+				</ul>
+				Register your identity.
+				<ul class="pricing-text">
+					<li>Open a terminal/command line interface</li>
+					<li>Navigate to the folder containing the downloaded client app</li>
+					<li>Execute the following command:<br/><code>&nbsp;> oal reg &lt;username&gt;&nbsp;</code></li>
+					<li>This will generate your identity (the only possible PII, depending on your identity name). You will receive the following message:
+					<div class="no-line-height"><code>&nbsp;Result: 200, Reason: Created&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;</code></div>
+					</li>
+					<li>If you have chosen an identity name that already exists you will receive the following message. Choose another identity name.
+					<br/><code>&nbsp;Result: 409, Reason: Already Exists&nbsp;</code>
+					</li>
+					<li>If you attempt to register a second identity, you will receive the following message:<br/>
+					<code>&nbsp;Result: 402, Reason: Payment Required. Only one free registration per user.&nbsp;</code>
+					</li>
+					<li>Users only can have one free identity. You can choose to have a credit card associated with your account for purchase of more identities and other services. See instructions below on linking a credit card.</li>
+				</ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Follow other identities</h2>
+			  <p>In order to send files to another user you must follow their identity. This, obviously, requires you to know the name of their identity. You can follow any number of identities for free.<br/>
+			  Follow other identities.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal follow &lt;identity&gt;&nbsp;</code></li>
+				<li>If the identity exists, you will receive the following message. You will receive the identity's public key for encryption.
+				<div class="no-line-height"><code>&nbsp;xxx bytes written to ./following/&lt;identity&gt;/public.key&nbsp;</code><br/><code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></div>
+				<li>If the identity does not exist, you will receive the following message:
+				<div class="no-line-height"><code>&nbsp;Result: 404, Reason: Not Found&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></div>
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Send Files</h2>
+			  <p>After you follow an identity, you can send files to it. These files are encrypted using the identity's public key that you obtain when you follow it.<br/>
+			  Send Files.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to send a file to an identity:<br/>
+				<code>&nbsp;> oal send &lt;identity&gt;&nbsp;&lt;path to file&gt;&nbsp;-f&nbsp;</code></li>
+				<li>If the transfer is successful, you will receive the following message.<div class="no-line-height">
+				<code>&nbsp;Result: 201, Reason: Sent&nbsp;&nbsp;<br/>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code></div>
+				<li>If you are not following the identity, you will receive the following message:<br/>
+				<code>&nbsp;Result: 400, Reason: You Are Not Following &lt;identity&gt;&nbsp;</code>
+				</li>
+				<li>You can also send plain text not in a file to an identity. Execute the following command. Be sure to include the quotes. All text between the quotes will be sent, not including the quotes. If successful, you will receive the same message as above.</br>
+				<code>&nbsp;> oal send &lt;identity&gt;&nbsp;"message&nbsp;to&nbsp;send"&nbsp;</code>
+				</li>
+				<li>If you attempt to send more than the allotted free transactions, you will receive the following message. The transaction can be accomplished if you authorize a credit card payment (see below).
+				<div class="no-line-height">
+				<code>&nbsp;Next call available at: Month day, year at hour:minute (UTC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Result: 402, Reason: Payment Required $x.xx USD. One free call per xx hours.&nbsp;</code><br/>
+				<code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></div>
+				</li>
+				<li>If you attempt to send a file that is too large, you will receive the following message.
+				<div class="no-line-height">
+				</div>
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">List Files</h2>
+			  <p>In order to know that your followers have sent you files, you can list the current files available for download.<br/>
+			  List Files.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal list &lt;identity&gt;</code></li>
+				<li>If the list is successful, you will receive the following message.
+				<div class="no-line-height">
+				<code>&nbsp;name:&lt;name of file&gt;,size:&lt;total encrypted bytes&gt;&nbsp;</code><br/>
+				<code>&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Result: 200, Reason: Sent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				<br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				</div>
+				</li>
+				<li>If the list is unsuccessful, you will receive the following message.
+				<div class="no-line-height">
+				<code>&nbsp;Result: 403, Reason: Unauthorized&nbsp;</code><br/>
+				<code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				</div>
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Get Files</h2>
+			  <p>Getting files your followers have sent you is the second part of the file transfer.<br/>
+			  Get Files.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal get &lt;identity&gt;&nbsp;&lt;filename&gt;&nbsp;</code></li>
+				<li>If the the transfer is successful, you will receive the following message.
+				<div class="no-line-height"></code><br/>
+				<code>&nbsp;&lt;total decrypted bytes&gt; successfully written to ./identity/&lt;identity&gt;/&lt;filename&gt;&nbsp;</code><br/>
+				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				<br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				</div>
+				</li>
+				<li>
+				Once the file is downloaded and decrypted, you can view the contents at the location specified in the GET message.
+				</li>
+				<li>
+				The identity specified in this command is YOUR identity, not the identity of the follower.
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Delete Files</h2>
+			  <p>Delete files your followers have sent you.<br/>
+			  Delete Files.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal delete &lt;identity&gt;&nbsp;&lt;filename&gt;&nbsp;</code></li>
+				<li>If the the delete is successful, you will receive the following message.
+				<div class="no-line-height">
+				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code>
+				</div>
+				</li>
+				<li>
+				Once the file is deleted it is no longer available for download and will not show up in a LIST command results.
+				</li>
+				<li>
+				The identity specified in this command is YOUR identity, not the identity of the follower.
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Display Info About Your Identities and Followers</h2>
+			  <p>Display Info About Your Identities and Followers.<br/>
+			  Display Info.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal info &nbsp;</code></li>
+				<li>If the the info is successful, you will receive the following message.
+				<div class="no-line-height">
+				<code>&nbsp;Version: v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;Build Type: production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Identities:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Following:&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Next available get:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Next available put:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code>
+				</div>
+				</li>
+				<li>
+				Once the file is deleted it is no longer available for download and will not show up in a LIST command results.
+				</li>
+				<li>
+				The identity specified in this command is YOUR identity, not the identity of the follower.
+				</li>
+			  </ul>
+			  </p>
+			  </div>
 	        </div>
-	        <div class="col-md-3">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Startup</h2>
-	            <span class="price"><sup>$</sup> <span class="number">19</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-3">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>450 GB</strong> Bandwidth</li>
-	              <li><strong>400 GB</strong> Storage</li>
-	              <li><strong>$2.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-3">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Premium</h2>
-	            <span class="price"><sup>$</sup> <span class="number">49</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-3">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>250 GB</strong> Bandwidth</li>
-	              <li><strong>200 GB</strong> Storage</li>
-	              <li><strong>$5.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-3">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Pro</h2>
-	            <span class="price"><sup>$</sup> <span class="number">99</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-3">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>450 GB</strong> Bandwidth</li>
-	              <li><strong>400 GB</strong> Storage</li>
-	              <li><strong>$20.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
 	        </div>
 	      </div>
-    	</div>
     </section>
-
-    <section class="ftco-section services-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <span class="subheading">Services</span>
-            <h2 class="mb-4">Why choose us</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-guarantee"></span></div></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">100% Uptime Guarantee</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-shield"></span></div></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Safe and Secured</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-support"></span></div></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Our Dedicated Support</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <span class="subheading">Facts</span>
-            <h2 class="mb-4">Your Question</h2>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-12">
-    				<div id="accordion">
-    					<div class="row">
-    						<div class="col-md-6">
-    							<div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menuone" aria-expanded="true" aria-controls="menuone">What is your domain name? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menuone" class="collapse show">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-
-						      <div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menutwo" aria-expanded="false" aria-controls="menutwo">How long is my domain name valid? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menutwo" class="collapse">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-
-						      <div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menu3" aria-expanded="false" aria-controls="menu3">Can I sell my domain name? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menu3" class="collapse">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-    						</div>
-
-    						<div class="col-md-6">
-    							<div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menu4" aria-expanded="false" aria-controls="menu4">Can I cancel a domain? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menu4" class="collapse">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-
-						      <div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menu5" aria-expanded="false" aria-controls="menu5">How do I transfer a domain name? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menu5" class="collapse">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-
-						      <div class="card">
-						        <div class="card-header">
-										  <a class="card-link" data-toggle="collapse"  href="#menu6" aria-expanded="false" aria-controls="menu6">How do I setup URL forwarding? <span class="collapsed"><i class="icon-plus-circle"></i></span><span class="expanded"><i class="icon-minus-circle"></i></span></a>
-						        </div>
-						        <div id="menu6" class="collapse">
-						          <div class="card-body">
-												<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						          </div>
-						        </div>
-						      </div>
-    						</div>
-    					</div>
-				    </div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
 	  <div class="container">
