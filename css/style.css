@@ -7502,7 +7502,7 @@ h1, h2, h3, h4, h5,
     position: absolute;
     top: 20%;
     right: 30%;
-    content: '';
+    content: '\A\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0Security';
     opacity: 1;
     width: 120px;
     height: 120px;
@@ -7510,6 +7510,7 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
+	white-space: pre-wrap;
     border-radius: 50%; }
   .hero-wrap .circle-bg-2:after {
     position: absolute;
