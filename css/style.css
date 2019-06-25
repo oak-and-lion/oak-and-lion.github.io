@@ -7487,7 +7487,7 @@ h1, h2, h3, h4, h5,
     position: absolute;
     top: 40%;
     left: 30%;
-    content: '';
+    content: '\A\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0Privacy';
     opacity: 1;
     width: 200px;
     height: 200px;
@@ -7495,7 +7495,9 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
-    border-radius: 50%; }
+    border-radius: 50%;
+	white-space: pre-wrap;
+	font-size:1.3em;	}
   .hero-wrap .circle-bg:before {
     position: absolute;
     top: 20%;
