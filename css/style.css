@@ -7502,7 +7502,7 @@ h1, h2, h3, h4, h5,
     position: absolute;
     top: 20%;
     right: 30%;
-    content: '\A\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0Security';
+    content: '\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0Security';
     opacity: 1;
     width: 120px;
     height: 120px;
@@ -7516,7 +7516,7 @@ h1, h2, h3, h4, h5,
     position: absolute;
     bottom: 10%;
     right: 2%;
-    content: '';
+    content: '\A\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0Safety';
     opacity: 1;
     width: 150px;
     height: 150px;
@@ -7524,12 +7524,13 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
-    border-radius: 50%; }
+    border-radius: 50%;
+	white-space: pre-wrap;	}
   .hero-wrap .circle-bg-2:before {
     position: absolute;
     top: -2%;
     left: 7%;
-    content: '';
+    content: '\A\A\00A0\00A0\00A0\00A0\00A0\00A0\00A0\00A0\0046reedom';
     opacity: 1;
     width: 100px;
     height: 100px;
@@ -7537,7 +7538,9 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
-    border-radius: 50%; }
+    border-radius: 50%;
+	white-space: pre-wrap;
+	font-size:.8em;	}
 
 .slider-text {
   height: 700px;

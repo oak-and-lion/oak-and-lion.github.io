@@ -74,6 +74,22 @@
 				<p>
 				Download the client app for your operating system
 				</p>
+				<table cellpadding="10" style="marg-left:-1000px">
+		<tr>
+		<th>Linux</th><th>Windows</th><th>Mac</th>
+		</tr>
+		<tr>
+		<td><a href="bin/oal-linux.zip" download><img src="images/download_arrow.png" width="64" height="64"/></a></td>
+		<td><a href="bin/oal-win.zip" download><img src="images/download_arrow.png" width="64" height="64"/></a></td>
+		<td><a href="bin/oal-mac.zip" download><img src="images/download_arrow.png" width="64" height="64"/></a></td>
+		</tr>
+		<tr>
+		<td>MD5 Hash</td><td>MD5 Hash</td><td>MD5 Hash</td>
+		</tr>
+		<tr>
+		<td>a48168ed065bcbfbefa8d78cc26cb743</td><td>6863beb9aece7e4baabef65b4836e2d4</td><td>coming&nbsp;soon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+	    </table>
 	            </div>
 			  <div class="text-left">
 			  <h2 class="heading">Generate your key pair</h2>
@@ -247,6 +263,34 @@
 				<li>Execute the following command to follow an identity:<br/>
 				<code>&nbsp;> oal info &nbsp;</code></li>
 				<li>If the the info is successful, you will receive the following message.
+				<div class="no-line-height">
+				<code>&nbsp;Version: v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;Build Type: production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Identities:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Following:&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Next available get:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Next available put:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
+				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code>
+				</div>
+				</li>
+				<li>
+				Once the file is deleted it is no longer available for download and will not show up in a LIST command results.
+				</li>
+				<li>
+				The identity specified in this command is YOUR identity, not the identity of the follower.
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Set Your Credit Card Payment Info</h2>
+			  <p>Set your credit card payment info to access commands more frequently.<br/>
+			  Set Your Credit Card Payment Info.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command to follow an identity:<br/>
+				<code>&nbsp;> oal set-payment &lt;cc number&gt; &lt;exp date (mm/yyyy)&gt; &lt;CVC&gt; &nbsp;</code></li>
+				<li>If the the set payment is successful, you will receive the following message.
 				<div class="no-line-height">
 				<code>&nbsp;Version: v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;Build Type: production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
 				<code>&nbsp;Identities:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
