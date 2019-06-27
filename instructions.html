@@ -214,7 +214,7 @@
 				<li>Navigate to the folder containing the downloaded client app</li>
 				<li>Execute the following command to follow an identity:<br/>
 				<code>&nbsp;> oal get &lt;identity&gt;&nbsp;&lt;filename&gt;&nbsp;</code></li>
-				<li>If the the transfer is successful, you will receive the following message.
+				<li>If the transfer is successful, you will receive the following message.
 				<div class="no-line-height"></code><br/>
 				<code>&nbsp;&lt;total decrypted bytes&gt; successfully written to ./identity/&lt;identity&gt;/&lt;filename&gt;&nbsp;</code><br/>
 				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
@@ -239,7 +239,7 @@
 				<li>Navigate to the folder containing the downloaded client app</li>
 				<li>Execute the following command to follow an identity:<br/>
 				<code>&nbsp;> oal delete &lt;identity&gt;&nbsp;&lt;filename&gt;&nbsp;</code></li>
-				<li>If the the delete is successful, you will receive the following message.
+				<li>If the delete is successful, you will receive the following message.
 				<div class="no-line-height">
 				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code>
 				</div>
@@ -262,7 +262,7 @@
 				<li>Navigate to the folder containing the downloaded client app</li>
 				<li>Execute the following command to follow an identity:<br/>
 				<code>&nbsp;> oal info &nbsp;</code></li>
-				<li>If the the info is successful, you will receive the following message.
+				<li>If the info is successful, you will receive the following message.
 				<div class="no-line-height">
 				<code>&nbsp;Version: v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;Build Type: production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
 				<code>&nbsp;Identities:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
@@ -290,22 +290,36 @@
 				<li>Navigate to the folder containing the downloaded client app</li>
 				<li>Execute the following command to follow an identity:<br/>
 				<code>&nbsp;> oal set-payment &lt;cc number&gt; &lt;exp date (mm/yyyy)&gt; &lt;CVC&gt; &nbsp;</code></li>
-				<li>If the the set payment is successful, you will receive the following message.
+				<li>If the set payment is successful, you will receive the following message.
 				<div class="no-line-height">
-				<code>&nbsp;Version: v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;Build Type: production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
-				<code>&nbsp;Identities:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
-				<code>&nbsp;Following:&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br/>
-				<code>&nbsp;Next available get:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
-				<code>&nbsp;Next available put:&nbsp;.&nbsp;.&nbsp;.&nbsp;&nbsp;</code><br/>
-				<code>&nbsp;Result: 200, Reason: OK&nbsp;&nbsp;&nbsp;&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;</code>
+				<code>&nbsp;Result: 201, Reason: Payment Set&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
 				</div>
 				</li>
 				<li>
-				Once the file is deleted it is no longer available for download and will not show up in a LIST command results.
+				The credit card info is checked by <a href="https://stripe.com" target="_blank">Stripe</a> for validity.
 				</li>
 				<li>
-				The identity specified in this command is YOUR identity, not the identity of the follower.
+				If you attempt to set the credit card information after you have already added a credit card you will get the following message.
+				<div class="no-line-height">
+				<code>&nbsp;Result: 409, Reason: Payment Already Set&nbsp;</code><br/><code>&nbsp;API Version: (prod)v.x.x.x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+				</div>
 				</li>
+				<li>
+				If you wish to change your credit card info, you can add "force" as the last argument in the command. This will force <a href="https://stripe.com" target="_blank">Stripe</a> to override your current credit card with the new information. If the override is successful, you will receive the message above.
+				</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Paying For Transactions</h2>
+			  <p>After you set your payment (see above), you can pay for transactions. These are registering more than one identity, and getting and putting more frequently than the free schedule allows.<br/>
+			  Paying For Transactions.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute any of the commands that require payment adding "auth-payment" as the last argument. Example:<br/>
+				<code>&nbsp;> oal get &lt;identity&gt; &lt;filename&gt; auth-payment&nbsp;</code></li>
+				<li>If the charge to your credit card is successful, you will receive the appropriate success message for the command, and your credit card will be charged.
 			  </ul>
 			  </p>
 			  </div>
