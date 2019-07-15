@@ -312,14 +312,28 @@
 			  </div>
 			  <div class="text-left">
 			  <h2 class="heading">Paying For Transactions</h2>
-			  <p>After you set your payment (see above), you can pay for transactions. These are registering more than one identity, and getting and putting more frequently than the free schedule allows.<br/>
+			  <p>After you set your payment (see above), you can pay for transactions. These include registering more than one identity, and getting and putting more frequently than the free schedule allows.<br/>
 			  Paying For Transactions.
 			  <ul>
 				<li>Open a terminal/command line interface</li>
 				<li>Navigate to the folder containing the downloaded client app</li>
 				<li>Execute any of the commands that require payment by adding "auth-payment" as the last argument. Example:<br/>
 				<code>&nbsp;> oal get &lt;identity&gt; &lt;filename&gt; auth-payment&nbsp;</code></li>
-				<li>If the charge to your credit card is successful, you will receive the appropriate success message for the command, and your credit card will be charged.
+				<li>If the charge to your credit card is successful, you will receive the appropriate success message for the command, and your credit card will be charged.</li>
+			  </ul>
+			  </p>
+			  </div>
+			  <div class="text-left">
+			  <h2 class="heading">Unfollow Identities</h2>
+			  <p>If you no longer wish to follow an identity, you can unfollow it. This will remove that identity's public key for encryption, preventing you from sending encrypted transfers.<br/>
+			  Unfollow Identities.
+			  <ul>
+				<li>Open a terminal/command line interface</li>
+				<li>Navigate to the folder containing the downloaded client app</li>
+				<li>Execute the following command<br/>
+				<code>&nbsp;> oal unfollow &lt;identity&gt;&nbsp;</code></li>
+				<li>You will receive the following message.
+				<div class="no-line-height"><code>&nbsp;Result: 200, Reason: Unfollowed &lt;identity&gt;</code></div></li>
 			  </ul>
 			  </p>
 			  </div>
